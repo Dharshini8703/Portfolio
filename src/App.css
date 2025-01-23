@@ -1,0 +1,491 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card {
+  max-width: 1200px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 10px;
+  background-color: #0d1626;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+  margin-top: 150px;
+}
+
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid #386fcf;
+}
+
+.profile-card h1 {
+  margin-top: 90px;
+  font-size: 24px;
+}
+
+.profile-details {
+  padding: 20px;
+  color: var(--text-color);
+  margin-left: 50px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  color: var(--text-color);
+}
+
+.para {
+  margin-right: auto;
+}
+
+.description {
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+.profile-card .social-links {
+  margin-top: 20px;
+}
+
+.profile-card .social-links a {
+  margin: 0 10px;
+  color: var(--icon-color);
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Section styles */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* 
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --header-background: #fff;
+  --card-background: #fff;
+  --icon-color: #a99f9f;
+}
+
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #817b7b;
+  --header-background: #1e1e1e;
+  --card-background: #1e1e1e;
+  --icon-color: #ccc;
+} */
+
+/* Light mode variables */
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --header-background: #fff;
+  --card-background: #fff;
+  --icon-color: #a99f9f;
+  --project-card-background: #fff; /* Light mode project card background */
+}
+
+/* Dark mode variables */
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #817b7b;
+  --header-background: #1e1e1e;
+  --card-background: #1e1e1e;
+  --icon-color: #ccc;
+  --project-card-background: #0d1626; /* Dark mode project card background */
+}
+
+/* Skills section styles */
+.skills-section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: var(--text-color);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-card {
+  background-color: var(--project-card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  height: 250px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s;
+  color: var(--text-color);
+}
+
+.skills-card:hover {
+  transform: scale(1.05);
+}
+
+.skill-name {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+
+/*  */
+
+.dark-mode-navbar {
+  background-color: var(--header-background) !important;
+}
+
+.light-mode-navbar {
+  background-color: var(--header-background) !important;
+}
+
+.dark-mode-profile-card {
+  background-color:#0d1626;
+}
+
+.profile-card-light {
+  background-color: var(--card-background);
+}
+
+
+/* Skills section styles */
+.skills-section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+
+.skills-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: var(--text-color);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-card {
+  background-color: #0d1626; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+body:not(.dark-mode) .skill-card {
+  background-color: #fff;
+  color: #333;
+}
+
+.timelinee-dot {
+  position: absolute;
+  left: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: #262860; /* Change color as needed */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.experiencee-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.experiencee-item::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #333; /* Change color as needed */
+  z-index: 0;
+}
+
+.profilee-name {
+  margin-left: 450px;
+} 
+.profile-name {
+  margin-left: 480px;
+}
+
+@media (max-width: 1200px) {
+  .profile-name {
+      margin-left: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-name {
+      margin-left: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-name {
+      margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-name {
+      margin-left: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-name {
+      margin-left: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-name {
+      margin-left: 20px;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .profilee-name {
+      margin-left: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .profilee-name {
+      margin-left: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profilee-name {
+      margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profilee-name {
+      margin-left: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profilee-name {
+      margin-left: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .profilee-name {
+      margin-left: 20px;
+  }
+}
+
+
+
+
+.contact-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-details {
+  max-width: 40%;
+}
+
+.contact-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark mode styles */
+.dark-mode-contact-card {
+  background-color: #333;
+  color: white;
+}
+
+.contact-card-light {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .contact-card {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .contact-details,
+  .contact-form {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .contact-details {
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  .contact-form {
+      width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-title {
+      font-size: 28px;
+  }
+
+  .contact-details h2 {
+      font-size: 22px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+      font-size: 14px;
+  }
+
+  .contact-form button {
+      font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
