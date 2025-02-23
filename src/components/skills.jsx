@@ -1,44 +1,50 @@
 import React from 'react';
-import '../App.css';  // Ensure this path is correct based on your project structure
+import '../App.css';  
 import pythonIcon from '../assets/python.png'; 
-import sqlIcon from '../assets/sql.png';
 import mysqlIcon from '../assets/mysql.png';
 import reactjsIcon from '../assets/react.png';
 import html5Icon from '../assets/html.png';
 import cssIcon from '../assets/css.png';
 import nodejsIcon from '../assets/nodejs.png';
-import powerbiIcon from '../assets/powerbi.png';
-import excelIcon from '../assets/excel.png';
-import azure from '../assets/azure.png';
+import jsIcon from '../assets/js.png';
+import expressIcon from '../assets/express1.png';
+import muiIcon from '../assets/mui.png';
+import github from '../assets/github1.png';
+import mongoDb from '../assets/mongo.png';
 
 // Skill data
 const skills = [
-  { name: 'Python', icon: pythonIcon },
-  { name: 'SQL', icon: sqlIcon },
-  { name: 'MySQL', icon: mysqlIcon },
-  { name: 'Azure', icon: azure },
-  { name: 'React.js', icon: reactjsIcon },
   { name: 'HTML5', icon: html5Icon },
   { name: 'CSS', icon: cssIcon },
+  { name: 'JavaScript', icon: jsIcon },
+  { name: 'React.js', icon: reactjsIcon },
   { name: 'Node.js', icon: nodejsIcon },
-  { name: 'Power BI', icon: powerbiIcon },
-  { name: 'Excel', icon: excelIcon },
+  { name: 'Express.js', icon: expressIcon },
+  { name: 'MySQL', icon: mysqlIcon },
+  { name: 'MongoDB', icon: mongoDb },
+  { name: 'MUI', icon: muiIcon },
+  { name: 'GitHub', icon: github },
+  { name: 'Python', icon: pythonIcon },
 ];
 
 function Skills({ darkMode }) {
+  const sectionStyle = {
+    padding: "20px",
+    maxWidth: "1150px",
+    margin: "0 auto",
+  }; 
+
   return (
-    <section id="skills" className="skills-section">
-      <div className={`contact-card${darkMode ? 'dark-mode-profile' : 'profile-light'}`}>
-        <h2 className="skills-title" style={{fontSize: '32px'}}>SKILLS</h2>
+    <section id="skills" style={sectionStyle}>
+      <h1 className='contact-title' style={{ fontSize: '32px', textAlign: 'center' }}>SKILLS</h1>
         <div className="skills-container">
           {skills.map((skill, index) => (
-            <div key={index} className="skill-card ">
+            <div key={index} className="skill-card">
               <img src={skill.icon} alt={skill.name} className="skill-icon" />
               <p className="skill-name">{skill.name}</p>
             </div>
           ))}
         </div> 
-      </div>
     </section>
   );
 }

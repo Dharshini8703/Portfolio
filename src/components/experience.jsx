@@ -5,39 +5,64 @@ const Experience = ({ darkMode }) => {
     const experiences = [
         {
             company: 'Trugo Technologies Pvt Ltd',
-            title: 'Web Developer Intern',
-            duration: 'April 2024 - June 2024',
-            description: 'Gained hands-on experience with Node.js, React.js, MySQL, and Express.js, developing and optimizing web applications. Contributed to both frontend and backend development, managing MySQL databases for efficient data handling.',
-        },
-        {
-            company: 'Accenture North America',
-            title: 'Data Analytics and Visualization Job Simulation',
-            duration: 'March 2024',
-            description: 'Analyzed and modeled 7 datasets to uncover content trends, preparing a PowerPoint deck and video presentation to communicate insights for strategic decision-making.',
-        },
+            title: 'Full Stack Developer',
+            duration: 'April 2024 - January 2025',
+            description: [
+                "Designed and developed end-to-end responsive web applications using Node.js, Express.js, React.js, MongoDB, and MySQL, ensuring seamless integration between front-end and back-end for optimal performance and scalability.",
+                "Led the creation of dynamic, user-friendly interfaces in React.js, implementing efficient server-side logic with Node.js and Express.js, reducing application load times by 20%.",
+                "Project: Created a secure admin panel with a RESTful API to manage contracts, implementing an MVC architecture. JWT used for authentication and role-based access control to ensure secure user interactions. The system enabled admins to create, update, and delete contracts efficiently."
+            ]
+        }
     ];
 
+    const sectionStyle = {
+        padding: "20px",
+        maxWidth: "1150px",
+        margin: "0 auto",
+        textAlign: "center",
+    };
+
+    const cardStyle = (isDark) => ({
+        backgroundColor: isDark ? "#0d1626" : "#fff",
+        color: isDark ? "#817b7b" : "#333",
+        padding: "20px",
+        borderRadius: "10px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        marginBottom: "20px",
+        textAlign: "left",
+    });
+
+    const titleStyle = {
+        fontSize: "22px",
+        fontWeight: "bold",
+    };
+
+    const durationStyle = {
+        fontSize: "14px",
+        color: "#666",
+        marginBottom: "10px",
+    };
+
+    const listStyle = {
+        paddingLeft: "20px",
+    };
+
     return (
-        <section id="experience">
-          <h1 className='contact-title'style={{fontSize: '32px'}}>EXPERIENCE</h1>
-            
-                <div className={`contact-card ${darkMode ? 'dark-mode-profile-card' : 'profile-card-light'}`}>
-                
-                    <div className='profile-details'>
-                        {experiences.map((exp, index) => (
-                            <div className='experiencee-item' key={index}>
-                                <div className='timelinee-dot'></div>
-                                <div className='experiencee-content'>
-                                <p className='para year'>{exp.duration}</p>
-                                    <h5 className='para'>{exp.company}</h5>
-                                    <h6 className='para'>{exp.title} </h6>
-                                    {exp.description && <p className='para'>{exp.description}</p>}
-                                </div>
-                            </div>
+        <section id="experience" style={sectionStyle}>
+            <h1 style={{ fontSize: '32px', marginBottom: '20px', textAlign: "center" }}>EXPERIENCE</h1>
+
+            {experiences.map((exp, index) => (
+                <div key={index} style={cardStyle(darkMode)}>
+                    <p style={durationStyle}>{exp.duration}</p>
+                    <h5 style={titleStyle}>{exp.company}</h5>
+                    <h6>{exp.title}</h6>
+                    <ul style={listStyle}>
+                        {exp.description.map((point, i) => (
+                            <li key={i} style={{ marginBottom: "8px" }}>{point}</li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
-          
+            ))}
         </section>
     );
 };

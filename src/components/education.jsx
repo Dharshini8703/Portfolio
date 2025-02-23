@@ -1,48 +1,85 @@
 import React from 'react';
-import '../App.css'; // Ensure this file contains your styling
+import '../App.css';
 
 const Education = ({ darkMode }) => {
     const experiences = [
         {
-            education: 'Dhirajlal Gandhi College of Technology',
-            study: 'Bachelor of Engineering ',
+            study: 'Dhirajlal Gandhi College of Technology',
+            education: 'Bachelor of Engineering',
             year: '2020-2024',
             mark: '8.2',
             dept: 'Electronics and Communication Engineering',
         },
         {
-            education: 'Sri Sarada Vidyalaya Higher Secondary School',
-            study: 'HSC',
+            study: 'Sri Sarada Vidyalaya Higher Secondary School',
+            education: 'HSC',
             year: '2019-2020',
             mark: '66.5%',
             dept: 'Maths Computer Science',
         },
         {
-            education: 'Sri Sarada Vidyalaya Higher Secondary School',
-            study: 'SSLC',
+            study: 'Sri Sarada Vidyalaya Higher Secondary School',
+            education: 'SSLC',
             year: '2017-2018',
             mark: '84.6%',
         },
     ];
 
+    const sectionStyle = {
+        padding: "20px",
+        maxWidth: "1150px",
+        margin: "0 auto",
+        textAlign: "center",
+    };
+
+    const containerStyle = {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "20px",
+    };
+
+    const cardStyle = (isDark) => ({
+        width: "100%", 
+        padding: "20px",
+        borderRadius: "10px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        backgroundColor: isDark ? "#0d1626" : "#fff",
+        color: isDark ? "#817b7b" : "#333",
+        textAlign: "left",
+        position: "relative",
+    });
+
+    const headerStyle = {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        fontWeight: "bold",
+        marginBottom: "5px",
+    };
+
+    const studyStyle = {
+        fontSize: "18px",
+        fontWeight: "bold",
+        margin: "5px 0",
+    };
+
     return (
-        <section id="education">
-            <h1 className='contact-title'style={{fontSize: '32px'}}>EDUCATION</h1>
-            <div className={`contact-card ${darkMode ? 'dark-mode-profile-card' : 'profile-card-light'}`}>
-                <div className='profile-details'>
-                    {experiences.map((exp, index) => (
-                        <div className='experiencee-item' key={index} >
-                            <div className='timelinee-dot'></div>
-                            <div className='experiencee-content'>
-                                <p className='parae year'>{exp.year}</p>
-                                <h5 className='education-name'>{exp.education}</h5>
-                                <h5 className='job-year'>{exp.study}</h5>
-                                {exp.dept && <p className='para'>{exp.dept}</p>}
-                                {exp.mark && <p className='para'>{exp.mark}</p>}
-                            </div>
+        <section id="education" style={sectionStyle}>
+            <h1 style={{ fontSize: '32px', marginBottom: '20px' }}>EDUCATION</h1>
+            <div style={containerStyle}>
+                {experiences.map((exp, index) => (
+                    <div key={index} style={cardStyle(darkMode)}>
+                        <div style={headerStyle}>
+                            <span>{exp.education} </span>
+                            
+                            <span style={{ marginLeft: "auto", fontSize: "14px", color: "#666" }}>{exp.year}</span>
                         </div>
-                    ))}
-                </div>
+                        {exp.dept && <span>{exp.dept}</span>}
+                        <p style={studyStyle}>{exp.study}</p>
+                        {exp.mark && <p>Marks: {exp.mark}</p>}
+                    </div>
+                ))}
             </div>
         </section>
     );
