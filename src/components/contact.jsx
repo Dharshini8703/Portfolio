@@ -45,10 +45,19 @@ const Contact = ({ darkMode }) => {
     maxWidth: "1150px",
     margin: "0 auto",
   };
+  
+  const gridStyle = {
+    gap: "20px",  // Space between each item
+    display: "grid",  // Use grid layout
+    gridTemplateColumns: "1fr",  // Forces 1 column per row
+    justifyContent: "center",  // Centers the items horizontally
+    width: "100%",
+  };
 
   return (
     <section id="contact" style={sectionStyle}>
       <h1 className='contact-title' style={{ fontSize: '32px' }}>CONTACT</h1>
+      <div style={gridStyle}>
       <div className={`contact-card ${darkMode ? 'dark-mode-profile-card' : 'profile-card-light'}`}>
       {/* <div className="contact-card"> */}
   {/* Left Section - "To Get in Touch" */}
@@ -59,7 +68,7 @@ const Contact = ({ darkMode }) => {
   {/* Center Section - Email */}
   <div className="contact-item">
     <Email />
-    <p style={{ marginLeft: 10, marginTop: 15 }}>dharshinichakra2003@gmail.com</p>
+    <p style={{ marginLeft: 10, marginTop: 15, fontSize: '17px' }}>dharshinichakra2003@gmail.com</p>
   </div>
 {/* </div> */}
 
@@ -72,10 +81,11 @@ const Contact = ({ darkMode }) => {
         </form> */}
         {/* {status && <p>{status}</p>} */}
       </div>
-      <div className='social-links profile-name' style={{display: 'flex', marginTop: 20}}>
-        <a href="https://github.com/Dharshini8703?tab=repositories" target="_blank" rel="noopener noreferrer"><GitHubIcon style={{ cursor: 'pointer',color:'#386fcf' }} /></a>
+      <div className='social-links profile-name' style={{ marginTop: 20, marginLeft: 10}}>
+        <a href="https://github.com/Dharshini8703" target="_blank" rel="noopener noreferrer"><GitHubIcon style={{ cursor: 'pointer',color:'#386fcf' }} /></a>
         <a href="https://www.linkedin.com/in/dharshini-chakravarthi" target="_blank" rel="noopener noreferrer"><LinkedInIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:50 }} /></a>
         <a href="mailto:dharshinichakra2003@gmail.com"><EmailIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:50 }} /></a>
+      </div>
       </div>
     </section>
   );

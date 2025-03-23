@@ -29,7 +29,6 @@ function Homepage() {
     document.body.classList.toggle('dark-mode', !darkMode);
   };
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
@@ -51,9 +50,10 @@ function Homepage() {
   };
 
   const sectionStyle = {
-      padding: '1px 0',
+      padding: '20px',
       maxWidth: "1150px",
-      margin: "0 auto", 
+      margin: "0 auto",
+      textAlign: "center",
     };
   
   
@@ -135,8 +135,8 @@ function Homepage() {
               Looking to contribute and grow in a collaborative development team.
               </p>
             </div>
-            <div className='social-links profile-name'>
-              <a href="https://github.com/Dharshini8703?tab=repositories" target="_blank" rel="noopener noreferrer"><GitHubIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:10 }} /></a>
+            <div className='social-links profilee-name' >
+              <a href="https://github.com/Dharshini8703" target="_blank" rel="noopener noreferrer"><GitHubIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:10 }} /></a>
               <a href="https://www.linkedin.com/in/dharshini-chakravarthi" target="_blank" rel="noopener noreferrer"><LinkedInIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:5 }} /></a>
               <a href="mailto:dharshinichakra2003@gmail.com"><EmailIcon style={{ cursor: 'pointer',color:'#386fcf', marginLeft:5 }} /></a>
             </div>

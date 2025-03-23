@@ -11,6 +11,7 @@ import expressIcon from '../assets/express1.png';
 import muiIcon from '../assets/mui.png';
 import github from '../assets/github1.png';
 import mongoDb from '../assets/mongo.png';
+import tailwind from '../assets/tailwind.png'
 
 // Skill data
 const skills = [
@@ -23,6 +24,7 @@ const skills = [
   { name: 'MySQL', icon: mysqlIcon },
   { name: 'MongoDB', icon: mongoDb },
   { name: 'MUI', icon: muiIcon },
+  { name: 'Tailwind CSS', icon: tailwind},
   { name: 'GitHub', icon: github },
   { name: 'Python', icon: pythonIcon },
 ];

@@ -13,16 +13,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 }
 
 .profile-card {
-  max-width: 1200px;
-  width: 100%;
-  margin: 50px auto;
-  padding: 10px;
+  /* max-width: 1200px;
+  width: 100%; */
+  /* margin: 50px auto; */
+  padding: 15px;
   background-color: #0d1626;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left;
   position: relative;
@@ -48,13 +47,13 @@ body {
 .profile-details {
   padding: 20px;
   color: var(--text-color);
-  margin-left: 50px;
+  text-align: justify;
+  /* margin-left: 50px; */
 }
 
 .icon-text {
   display: flex;
   align-items: center;
-  /* margin-bottom: 5px; */
 }
 
 .icon {
@@ -83,7 +82,6 @@ body {
   text-align: center;
 }
 
-/* Section styles */
 section {
   padding: 60px 20px;
   max-width: 1200px;
@@ -101,20 +99,18 @@ section h2 {
   --header-background: #fff;
   --card-background: #fff;
   --icon-color: #a99f9f;
-  --project-card-background: #fff; /* Light mode project card background */
+  --project-card-background: #fff; 
 }
 
-/* Dark mode variables */
 body.dark-mode {
   --background-color: #121212;
   --text-color: #817b7b;
   --header-background: #1e1e1e;
   --card-background: #1e1e1e;
   --icon-color: #ccc;
-  --project-card-background: #0d1626; /* Dark mode project card background */
+  --project-card-background: #0d1626; 
 }
 
-/* Skills section styles */
 .skills-section {
   padding: 20px;
   max-width: 1150px;
@@ -128,12 +124,6 @@ body.dark-mode {
   margin-bottom: 40px;
   color: var(--text-color);
 }
-
-/* .skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-} */
 
 .skills-card {
   background-color: var(--project-card-background);
@@ -156,17 +146,22 @@ body.dark-mode {
 .skill-name {
   color: var(--text-color);
   font-size: 18px;
+  
 }
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
   justify-items: center;
   padding: 20px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: center;
 }
 
 .skill-card {
   display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
   flex-direction: column;
   align-items: center;
   padding: 10px;
@@ -176,19 +171,7 @@ body.dark-mode {
   color: black;
   text-align: center;
   transition: transform 0.3s ease-in-out;
-  width: 120px;
-
-  /* background-color: #0d1626; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 150px;
-  height: 150px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s;
-  border-radius: 10px; */
 }
 
 .skill-card:hover {
@@ -206,16 +189,27 @@ body.dark-mode {
   font-weight: bold;
 }
 
-/* Responsive: Two columns on small screens */
-@media (max-width: 768px) {
+@media (max-width: 758px) {
   .skills-container {
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); 
     gap: 15px;
   }
 }
 
 
-/*  */
 
 .dark-mode-navbar {
   background-color: var(--header-background) !important;
@@ -234,7 +228,6 @@ body.dark-mode {
 }
 
 
-/* Skills section styles */
 .skills-section {
   padding: 60px 20px;
   background-color: var(--background-color);
@@ -249,30 +242,8 @@ body.dark-mode {
   color: var(--text-color);
 }
 
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* .skill-card {
-  background-color: #0d1626; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 150px;
-  height: 150px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s;
-  border-radius: 10px;
-} */
-
-
-
-/* .skill-card:hover {
-  transform: scale(1.05);
+/* .skills-container {
+  
 } */
 
 .skill-icon {
@@ -292,7 +263,6 @@ body:not(.dark-mode) .skill-card {
 }
 
 .profilee-name {
-  /* margin-left: 450px; */
   text-align: center;
 } 
 .profile-name {
@@ -348,42 +318,36 @@ body:not(.dark-mode) .skill-card {
 
 @media (max-width: 1200px) {
   .profilee-name {
-      /* margin-left: 400px; */
       text-align: center;
   }
 }
 
 @media (max-width: 992px) {
   .profilee-name {
-      /* margin-left: 300px; */
       text-align: center;
   }
 }
 
 @media (max-width: 768px) {
   .profilee-name {
-      /* margin-left: 200px; */
       text-align: center;
   }
 }
 
 @media (max-width: 576px) {
   .profilee-name {
-      /* margin-left: 100px; */
       text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .profilee-name {
-      /* margin-left: 50px; */
       text-align: center;
   }
 }
 
 @media (max-width: 360px) {
   .profilee-name {
-      /* margin-left: 20px; */
       text-align: center;
   }
 }
@@ -399,11 +363,11 @@ body:not(.dark-mode) .skill-card {
 
 .contact-card {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 330px;
 }
 
 
@@ -415,13 +379,12 @@ body:not(.dark-mode) .skill-card {
 .contact-details {
   flex: 1; 
   text-align: left;
-  /* margin-left: 80px; */
 }
 
 .contact-item {
   flex: 1;
   display: flex;
-  justify-content: center; /* Centers the email */
+  justify-content: center; 
   align-items: center;
 }
 
@@ -461,7 +424,6 @@ body:not(.dark-mode) .skill-card {
   background-color: #0056b3;
 }
 
-/* Dark mode styles */
 .dark-mode-contact-card {
   background-color: #333;
   color: white;
@@ -472,11 +434,11 @@ body:not(.dark-mode) .skill-card {
   color: black;
 }
 
-/* Responsive styles */
 @media (max-width: 992px) {
   .contact-card {
       flex-direction: column;
       align-items: center;
+      min-width: 330px;
   }
 
   .contact-details,

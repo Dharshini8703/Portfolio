@@ -33,11 +33,20 @@ const Education = ({ darkMode }) => {
     };
 
     const containerStyle = {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "20px",
-    };
+        gap: "20px",  // Space between each item
+        display: "grid",  // Use grid layout
+        gridTemplateColumns: "1fr",  // Forces 1 column per row
+        justifyContent: "center",  // Centers the items horizontally
+        width: "100%",  // Ensure the container takes up full width of parent container
+      };
+      
+      const itemStyle = {
+        minWidth: "330px",  // Set a fixed width for each item
+        maxWidth: "330px",  // Ensure the width doesn't exceed 330px
+        width: "330px",     // Set exact width for each item
+      };
+      
+      
 
     const cardStyle = (isDark) => ({
         width: "100%", 
@@ -48,6 +57,9 @@ const Education = ({ darkMode }) => {
         color: isDark ? "#817b7b" : "#333",
         textAlign: "left",
         position: "relative",
+        minWidth: "330px",  // Set a fixed width for each item
+        // maxWidth: "330px",  // Ensure the width doesn't exceed 330px
+        // width: "330px", 
     });
 
     const headerStyle = {
@@ -63,6 +75,13 @@ const Education = ({ darkMode }) => {
         fontWeight: "bold",
         margin: "5px 0",
     };
+
+    const gridStyle = {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(330px, 1fr))",
+        gap: "10px",
+        justifyContent: "center",
+      };
 
     return (
         <section id="education" style={sectionStyle}>

@@ -6,7 +6,7 @@ const Experience = ({ darkMode }) => {
         {
             company: 'Trugo Technologies Pvt Ltd',
             title: 'Full Stack Developer',
-            duration: 'April 2024 - January 2025',
+            duration: 'April 2024 - Present',
             description: [
                 "Designed and developed end-to-end responsive web applications using Node.js, Express.js, React.js, MongoDB, and MySQL, ensuring seamless integration between front-end and back-end for optimal performance and scalability.",
                 "Led the creation of dynamic, user-friendly interfaces in React.js, implementing efficient server-side logic with Node.js and Express.js, reducing application load times by 20%.",
@@ -30,6 +30,7 @@ const Experience = ({ darkMode }) => {
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
         marginBottom: "20px",
         textAlign: "left",
+        
     });
 
     const titleStyle = {
@@ -46,23 +47,31 @@ const Experience = ({ darkMode }) => {
     const listStyle = {
         paddingLeft: "20px",
     };
+    const gridStyle = {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(330px, 1fr))",
+        gap: "10px",
+        justifyContent: "center",
+    };
 
     return (
         <section id="experience" style={sectionStyle}>
             <h1 style={{ fontSize: '32px', marginBottom: '20px', textAlign: "center" }}>EXPERIENCE</h1>
-
+            <div style={gridStyle}>
             {experiences.map((exp, index) => (
                 <div key={index} style={cardStyle(darkMode)}>
                     <p style={durationStyle}>{exp.duration}</p>
-                    <h5 style={titleStyle}>{exp.company}</h5>
-                    <h6>{exp.title}</h6>
+                    <h5 style={titleStyle}>{exp.title}</h5>
+                    <h6>{exp.company}</h6>
                     <ul style={listStyle}>
                         {exp.description.map((point, i) => (
-                            <li key={i} style={{ marginBottom: "8px" }}>{point}</li>
+                            <li key={i} style={{ marginTop: "20px", textAlign: 'justify' }}>{point}</li>
                         ))}
                     </ul>
                 </div>
+                
             ))}
+            </div>
         </section>
     );
 };
