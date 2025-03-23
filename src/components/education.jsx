@@ -33,18 +33,13 @@ const Education = ({ darkMode }) => {
     };
 
     const containerStyle = {
-        gap: "20px",  // Space between each item
+        gap: "10px",  // Space between each item
         display: "grid",  // Use grid layout
         gridTemplateColumns: "1fr",  // Forces 1 column per row
         justifyContent: "center",  // Centers the items horizontally
         width: "100%",  // Ensure the container takes up full width of parent container
       };
       
-      const itemStyle = {
-        minWidth: "330px",  // Set a fixed width for each item
-        maxWidth: "330px",  // Ensure the width doesn't exceed 330px
-        width: "330px",     // Set exact width for each item
-      };
       
       
 
@@ -67,7 +62,7 @@ const Education = ({ darkMode }) => {
         justifyContent: "space-between",
         alignItems: "center",
         fontWeight: "bold",
-        marginBottom: "5px",
+        // marginBottom: "5px",
     };
 
     const studyStyle = {
@@ -75,13 +70,6 @@ const Education = ({ darkMode }) => {
         fontWeight: "bold",
         margin: "5px 0",
     };
-
-    const gridStyle = {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(330px, 1fr))",
-        gap: "10px",
-        justifyContent: "center",
-      };
 
     return (
         <section id="education" style={sectionStyle}>
@@ -94,8 +82,8 @@ const Education = ({ darkMode }) => {
                             
                             <span style={{ marginLeft: "auto", fontSize: "14px", color: "#666" }}>{exp.year}</span>
                         </div>
-                        {exp.dept && <span>{exp.dept}</span>}
                         <p style={studyStyle}>{exp.study}</p>
+                        {exp.dept && <span>{exp.dept}</span>}
                         {exp.mark && <p>Marks: {exp.mark}</p>}
                     </div>
                 ))}

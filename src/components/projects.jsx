@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import LoopIcon from "@mui/icons-material/Loop";
@@ -53,89 +53,6 @@ const projects = [
   },
 ];
 
-
-function Projects({ darkMode }) {
-  const sectionStyle = {
-    padding: "20px",
-    maxWidth: "1150px",
-    margin: "0 auto",
-  };
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(330px, 1fr))",
-    gap: "10px",
-    justifyContent: "center",
-  };
-
-  const cardStyle = {
-    height: "280px",
-    padding: "15px",
-    borderRadius: "8px",
-    backgroundColor: darkMode ? "#0d1626" : "#fff",
-    color: darkMode ? "#817b7b" : "#333",
-    display: "flex",
-    flexDirection: "column",
-    position: "relative",
-  };
-
-  const githubIconStyle = {
-    position: "absolute",
-    top: "10px",
-    right: "10px",
-    fontSize: "24px",
-    color: darkMode ? "#fff" : "#333",
-  };
-
-  const sectionTitleStyle = {
-    textAlign: "center",
-    fontSize: "32px",
-    marginBottom: "20px",
-    color: darkMode ? "#817b7b" : "#333",
-  };
-
-  const titleStyle = {
-    fontWeight: "bold",
-    fontSize: "17px",
-    marginBottom: "5px",
-  };
-
-  const skillStyle = {
-    marginTop: "10px",
-    fontStyle: "italic",
-    fontSize: "14px",
-    color: darkMode ? "#b0b0b0" : "#666",
-    textAlign: "left",
-  };
-
-  const descriptionStyle = {
-    flex: "1", 
-    fontSize: "14px",
-    margin: "8px 0",
-    textAlign: "justify",
-  };
-
-  const getStatusStyle = (status) => ({
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    fontSize: "14px",
-    fontWeight: "bold",
-    padding: "0px 6px",
-    borderRadius: "15px",
-    width: "fit-content",
-    backgroundColor: status === "Completed" ? "#E6F4EA" : "#FFF3CD",
-    border: `2px solid ${status === "Completed" ? "#34A853" : "#FFC107"}`,
-    color: status === "Completed" ? "#2E7D32" : "#856404",
-    marginTop: "auto", 
-  });
-
-  const getStatusIcon = (status) => (
-    status === "Completed" 
-      ? <CheckCircleIcon style={{ color: "#34A853" }} /> 
-      : <LoopIcon style={{ color: "#FFC107" }} />
-  );
-
   const getSkillIcon = (skill) => {
     switch (skill.trim()) {
       case 'HTML5':
@@ -166,49 +83,160 @@ function Projects({ darkMode }) {
         return null;
     }
   };
-  
-  
+
+const Projects = ({ darkMode }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const isSmallScreen = window.innerWidth <= 768;
+
+  const sectionStyle = {
+    padding: "20px",
+    maxWidth: "1150px",
+    margin: "0 auto",
+  };
+
+  const gridStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(330px, 1fr))",
+    gap: "10px",
+    justifyContent: "center",
+  };
+
+  const cardStyle = {
+    position: "relative",
+    height: "auto",
+    padding: "15px",
+    borderRadius: "8px",
+    backgroundColor: darkMode ? "#0d1626" : "#fff",
+    color: darkMode ? "#817b7b" : "#333",
+    display: "flex",
+    flexDirection: "column",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+  };
+
+  const githubIconStyle = {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    fontSize: "24px",
+    color: darkMode ? "#fff" : "#333",
+  };
+
+  const titleStyle = {
+    fontWeight: "bold",
+    fontSize: "17px",
+    marginBottom: "5px",
+  };
+
+  const descriptionStyle = {
+    marginTop: "5px",
+    padding: "10px",
+    // backgroundColor: "#386fcf",
+    color: darkMode ? "#817b7b" : "#333",
+    borderRadius: "8px",
+    fontSize: "14px",
+    textAlign: 'justify',
+  };
+
+  const getStatusStyle = (status) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    fontSize: "14px",
+    fontWeight: "bold",
+    padding: "4px 8px",
+    borderRadius: "15px",
+    width: "fit-content",
+    backgroundColor: status === "Completed" ? "#E6F4EA" : "#FFF3CD",
+    border: `2px solid ${status === "Completed" ? "#34A853" : "#FFC107"}`,
+    color: status === "Completed" ? "#2E7D32" : "#856404",
+    marginTop: "auto",
+  });
+
+  const getStatusIcon = (status) => (
+    status === "Completed" 
+      ? <CheckCircleIcon style={{ color: "#34A853" }} /> 
+      : <LoopIcon style={{ color: "#FFC107" }} />
+  );
+
+  const skillStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "5px",
+    marginTop: "10px",
+    marginBottom: "10px",
+  };
 
   return (
     <section id="projects" style={sectionStyle}>
       <h1 className='contact-title' style={{ fontSize: '32px' }}>PROJECTS</h1>
       <div style={gridStyle}>
-      {projects.map((project, index) => (
-        <div key={index} style={cardStyle}>
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <GitHubIcon style={githubIconStyle} />
-          </a>
-          <p style={titleStyle}>{project.name}</p>
-          <p style={descriptionStyle}>{project.description}</p>
-          <p style={skillStyle}>
+        {projects.map((project, index) => (
+          <div 
+            key={index} 
+            style={cardStyle}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <GitHubIcon style={githubIconStyle} />
+            </a>
+            <p style={titleStyle}>{project.name}</p>
+            {isSmallScreen || hoveredIndex === index ? (
+              <p style={descriptionStyle}>{project.description}</p>
+            ) : 
+            <>
+            <div style={skillStyle}>
             {project.skill.split(',').map((skill) => (
-              <span
-                key={skill}
-                style={{
-                  display: 'inline-flex', 
-                  alignItems: 'center',
-                  marginRight: '7px', 
-                  fontSize: '12px',
-                  border: '1px solid grey',
-                  borderRadius: '10px',
-                  padding: "0px 6px",
-                }}
-              >
+              <span key={skill} style={{
+                display: 'flex',
+                alignItems: 'center',
+                border: '1px solid grey',
+                borderRadius: '10px',
+                padding: "4px 10px",
+                fontSize: '12px',
+              }}>
                 {getSkillIcon(skill)}{skill}
               </span>
             ))}
-          </p>
-
-          <div style={getStatusStyle(project.status)}>
+          </div>
+        <div style={getStatusStyle(project.status)}>
             {getStatusIcon(project.status)}
             {project.status}
           </div>
-        </div>
-      ))}
+            </>
+          }
 
+          {
+            isSmallScreen && 
+            <>
+            <div style={skillStyle}>
+            {project.skill.split(',').map((skill) => (
+              <span key={skill} style={{
+                display: 'flex',
+                alignItems: 'center',
+                border: '1px solid grey',
+                borderRadius: '10px',
+                padding: "4px 10px",
+                fontSize: '12px',
+              }}>
+                {getSkillIcon(skill)}{skill}
+              </span>
+            ))}
+          </div>
+        <div style={getStatusStyle(project.status)}>
+            {getStatusIcon(project.status)}
+            {project.status}
+          </div>
+            </>
+          }
+            
+          </div>
+        ))}
       </div>
     </section>
   );
-}
+};
 
 export default Projects;
